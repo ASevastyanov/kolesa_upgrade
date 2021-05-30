@@ -1,0 +1,4 @@
+#игнор папки Vendor
+vendor
+#Игнор файла chromedriver
+chromedriver.exe
