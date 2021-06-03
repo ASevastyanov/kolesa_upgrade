@@ -9,28 +9,34 @@ class CheckNavLinksCest
 {
     /**
      * Тест для проверки работоспособности вкладок навигационного меню
-     * @param Example $data
-     * @dataProvider getDataForNavLinks
+     * @param Example $example
+     * @dataProvider getDataFromRandomCategory
+     * @throws Exception
      */
-    public function NavLinks(AcceptanceTester $I, Example $data)
+    public function NavLinks(AcceptanceTester $I, Example $example)
     {
         $I->amOnPage(HabrPage::$URL);
         $I->waitForElement(HabrPage::$WaitNavLinks);
-        $I->click($data['numberLink']);
-        $I->seeInCurrentUrl($data['nameLink']);
-        $I->seeElement($data['seeName']);
+        $I->click($example['numberLink']);
+        $I->seeInCurrentUrl($example['nameLink']);
+        $I->seeElement($example['seeName']);
     }
-    protected function getDataForNavLinks()
+
+    protected array $navStep = [
+        ['numberLink' => '.nav-links>li:nth-child(2)','nameLink' => 'develop', 'seeName' => 'div.page-header'],
+        ['numberLink' => '.nav-links>li:nth-child(3)','nameLink' => 'admin', 'seeName' => 'div.page-header'],
+        ['numberLink' => '.nav-links>li:nth-child(4)','nameLink' => 'design', 'seeName' => 'div.page-header'],
+        ['numberLink' => '.nav-links>li:nth-child(5)','nameLink' => 'management', 'seeName' => 'div.page-header'],
+        ['numberLink' => '.nav-links>li:nth-child(6)','nameLink' => 'marketing', 'seeName' => 'div.page-header'],
+        ['numberLink' => '.nav-links>li:nth-child(7)','nameLink' => 'popsci', 'seeName' => 'div.page-header']
+    ];
+
+    /**
+     * Возвращает рандомные шаги
+     */
+    public function getDataFromRandomCategory()
     {
-        //$data = array_rand($data, 2);
-        return[
-            ['numberLink' => '.nav-links>li:nth-child(2)','nameLink' => 'develop', 'seeName' => 'div.page-header'],
-            ['numberLink' => '.nav-links>li:nth-child(3)','nameLink' => 'admin', 'seeName' => 'div.page-header'],
-            ['numberLink' => '.nav-links>li:nth-child(4)','nameLink' => 'design', 'seeName' => 'div.page-header'],
-            ['numberLink' => '.nav-links>li:nth-child(5)','nameLink' => 'management', 'seeName' => 'div.page-header'],
-            ['numberLink' => '.nav-links>li:nth-child(6)','nameLink' => 'marketing', 'seeName' => 'div.page-header'],
-            ['numberLink' => '.nav-links>li:nth-child(7)','nameLink' => 'popsci', 'seeName' => 'div.page-header'],
-        ];
+        return $this->navStep[array_rand($this->navStep, $num = 2)];
     }
 
 }
