@@ -7,13 +7,15 @@
 
 actor: FunctionalTester
 modules:
-    enabled:
-        # add a framework module here
-        - WebDriver:
-              url: http://automationpractice.com/index.php
-              host: localhost
-              port: 9515
-              browser: chrome
-              window_size: 1440x900
-                  - \Helper\Acceptance
+  enabled:
+    - \Helper\BaseHelper
+    - \Helper\Functional
+    - REST:
+        depends: PhpBrowser
+        url: 'http://api.izze.xyz/test/'
+  config:
+    PhpBrowser:
+      url: 'http://api.izze.xyz/test/'
+      headers:
+        Content-Type: application/json
     step_decorators: ~        
