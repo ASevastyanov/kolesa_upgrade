@@ -72,13 +72,9 @@
       <path value="$PROJECT_DIR$/vendor/php-webdriver/webdriver" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/codeception/module-webdriver" />
-      <path value="$PROJECT_DIR$/vendor/softcreatr/jsonpath" />
-      <path value="$PROJECT_DIR$/vendor/codeception/module-rest" />
-      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
-      <path value="$PROJECT_DIR$/vendor/league/factory-muffin-faker" />
-      <path value="$PROJECT_DIR$/vendor/league/factory-muffin" />
-      <path value="$PROJECT_DIR$/vendor/codeception/module-datafactory" />
-      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
