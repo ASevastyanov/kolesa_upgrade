@@ -11,12 +11,12 @@ jobs:
            php-version: '7.4'
       - name: Install Dependencies
         run: composer install
-      - name: Install Faker
-        run: composer require fzaninotto/faker
+     # - name: Install Faker
+     #    run: composer require fzaninotto/faker
       - name: Run chromedriver
         run: nohup $CHROMEWEBDRIVER/chromedriver --url-base=/wd/hub dev/null 2>&1 &
       - name: Run tests
-        run: php/vendor/codecept run --steps -vvv --xml
+        run: php/vendor/codecept run acceptance --steps -vvv --xml
       - name: Publist Test Report
         if: always()
         uses: mikepenz/action-junit-report@v2.4.2
